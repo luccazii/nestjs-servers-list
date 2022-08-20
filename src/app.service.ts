@@ -9,12 +9,12 @@ export class AppService {
   constructor(@Inject(CACHE_MANAGER) private cacheManager: Cache) {}
 
   async getHello() {
-    await this.cacheManager.set('foo2', 'bar3', { ttl: 100000 });
+    await this.cacheManager.set('testing', 'working', { ttl: 100000 });
 
-    const res = await this.cacheManager.get('foo2');
+    const res = await this.cacheManager.get('testing');
     console.log(res); // logs "bar2"
 
-    return 'Hello World lol: ' + res;
+    return 'APP is working, getting message from redis caching: ' + res;
   }
 
   async getServerInfo(ip, port) {
