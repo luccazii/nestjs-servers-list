@@ -4407,6 +4407,11 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+rcon@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/rcon/-/rcon-1.1.0.tgz#82a27bbfadd4c13b3c5d828b55ce15bd606eb7c3"
+  integrity sha512-eotwcApOBjfadTjqQlrZVR4jzlwGCMNxmHhnFZx+g4kouwwRstRHkk1ON7DzkqrHNIjADSh0cU3gThSsDolUpg==
+
 react-is@^17.0.1:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
