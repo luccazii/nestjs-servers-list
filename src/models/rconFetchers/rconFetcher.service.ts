@@ -5,19 +5,21 @@ var Rcon = require('rcon')
 export class RconFetcherService {
   constructor() {}
 
-  async getServerDataFromServer(ip, port, rconPassword) {
-    return this.sendRconCommand(ip, port, rconPassword, 'status');
+  getServerDataFromServer(ip, port, rconPassword) {
+    return this.sendRconCommand(ip, port, rconPassword, 'sm_json_clients')
   }
 
   sendRconCommand(ip, port, password, command) {
-    // let conn = new Rcon(ip, port, password, {}); // todo implement it properly
-    let conn = new Rcon('15.228.222.53', '27015', 'temp321');
+    let conn = new Rcon(ip, port, password);
+    // let conn = new Rcon('18.230.115.205', '27015', 'changeme');
 
-    conn
-        .on('auth', () => conn.send(command))
-        .on('response', messageString => console.log(messageString))
-        .on('end', () => process.exit())
+    return new Promise(resolve => {
+      conn
+          .on('auth', () => conn.send(command))
+          .on('end', () => process.exit())
+          .on('response', data => !data || resolve(data)) // the event is fired when constructed, so lets check if data is not empty
 
-    conn.connect();
+      conn.connect();
+    });
   }
 }
