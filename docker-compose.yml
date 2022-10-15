@@ -12,6 +12,7 @@ services:
       - "3030:3030"
     volumes:
       - .:/usr/src/app
+      - /usr/src/app/node_modules
     networks:
       - serverListNetwork
     depends_on:
