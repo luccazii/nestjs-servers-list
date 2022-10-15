@@ -17,7 +17,9 @@ export class RconFetcherService {
       conn
           .on('auth', () => conn.send(command))
           .on('end', () => process.exit())
-          .on('response', data => !data || resolve(data)) // the event is fired when constructed, so lets check if data is not empty
+          .on('response', data => !data || resolve(JSON.parse(data))) // the event is fired when constructed, so lets check if data is not empty
+
+      setTimeout(() => resolve(null), 600)
 
       conn.connect();
     });

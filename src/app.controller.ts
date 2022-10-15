@@ -10,10 +10,13 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  @Get('server-info/:host/:port')
+  @Get('server-info/:host/:port/:rconPassword?')
   getServerInfo(@Param() params) {
-    console.log(params.host);
-    return this.appService.getServerInfo(params.host, params.port);
+    return this.appService.getServerInfo(
+      params.host,
+      params.port,
+      params.rconPassword,
+    );
   }
 
   @Get('servers')
