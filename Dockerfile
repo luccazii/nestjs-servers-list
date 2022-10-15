@@ -10,7 +10,7 @@ USER root
 RUN npm i -g npm@7.24.2
 RUN npm install #RUN npm ci && npm cache clean --force #todo try to use this instead of npm install
 
-RUN npm build
+RUN npm run build
 
 USER node
 
